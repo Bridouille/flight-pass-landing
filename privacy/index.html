@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy · Flight Pass</title>
+  <meta name="description" content="How Flight Pass handles your boarding passes and data.">
+  <link rel="canonical" href="https://flight-pass.app/privacy/">
+  <link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700|Roboto+Mono:400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+
+  <header class="fp-top">
+    <div class="fp-wrap"><a class="fp-brand" href="/"><img src="/assets/icon.svg" alt="">Flight Pass</a></div>
+  </header>
+
+  <main class="fp-doc">
+    <h1>Privacy Policy</h1>
+    <p class="fp-date"><em>Last updated: 10 October 2026</em></p>
+
+    <p><strong>Your boarding passes never reach a server of mine.</strong> I don't run any server for this app. Your passes, the files you import them from and your notes stay on your phone, or in your own Google Drive if you turn backup on. The only things I receive are anonymous usage statistics and crash reports, described below.</p>
+
+    <h2>Your passes</h2>
+    <ul>
+      <li>Everything you add to the app (passes, the PDFs and photos you import them from, notes) is stored on your phone.</li>
+      <li>Uninstalling the app deletes them from your phone. Android's own device backup, if it is on in your phone's settings, may also keep a copy in your Google account, which Google handles; it is not sent to me either.</li>
+    </ul>
+
+    <h2>Google Drive backup (optional, off by default)</h2>
+    <ul>
+      <li>If you turn it on, the app copies your passes to <strong>your own Google Drive account</strong>, once a day when they have changed.</li>
+      <li>The copies go to a hidden folder that only Flight Pass can open. The app can't see any of your other files in Drive, and nobody else, me included, can read the backup.</li>
+      <li>The app asks Google only for the permission to manage its own hidden folder (<code>drive.appdata</code>).</li>
+      <li>You can turn backup off at any time from Settings, and choose to delete the copies from your Drive. You can also remove them yourself in Google Drive: Settings → Manage apps → Flight Pass → Delete hidden app data.</li>
+      <li>Flight Pass's use of information received from Google APIs adheres to the <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, including the Limited Use requirements. That data is used only to back up and restore your passes, is never transferred to me or anyone else, and is never used for advertising.</li>
+    </ul>
+
+    <h2>What I receive: anonymous statistics and crash reports</h2>
+    <ul>
+      <li><strong><em>Firebase Analytics</em></strong> tells me which features are used, for example that a pass was imported, which airline it was with and which airports it flies between. It never includes your name, booking reference, seat, frequent flyer number or barcode, and it is not linked to your Google account. <a href="https://firebase.google.com/support/privacy">Read more</a></li>
+      <li><strong><em>Firebase Crashlytics</em></strong> sends me a report when the app crashes: the device model, Android version and a technical log of what the app was doing, so I can fix the bug. It doesn't include your passes.</li>
+    </ul>
+
+    <h2>Looking up your flights</h2>
+    <p>To show live flight status, weather and aircraft photos, the app asks public services directly from your phone. They receive only what the lookup needs, never who you are:</p>
+    <ul>
+      <li>public flight-status websites: the flight number, date and airports;</li>
+      <li><a href="https://api.met.no">MET Norway</a>: the location of the departure and arrival airports, for the weather;</li>
+      <li><a href="https://www.planespotters.net">Planespotters.net</a>: the aircraft's registration, for its photo.</li>
+    </ul>
+    <p>The list of airlines, airports and aircraft is downloaded from my public GitHub repository. Nothing is sent to it.</p>
+
+    <h2>Ads and purchases</h2>
+    <ul>
+      <li>The free version shows ads from <strong><em>Google AdMob</em></strong>. In the European Economic Area and the UK you are asked for consent first, and you can change your choice anytime from Settings → Ad preferences. <a href="https://policies.google.com/technologies/partner-sites">How Google uses data from apps that show ads</a></li>
+      <li>Removing ads is a purchase handled by <strong><em>Google Play</em></strong>. I never see your payment details, and the purchase follows you to a new phone through your Google account.</li>
+    </ul>
+
+    <h2>Contact</h2>
+    <p>For any question about your data, write to <a href="mailto:nicobr65@gmail.com">nicobr65@gmail.com</a>.</p>
+  </main>
+
+  <footer class="fp-foot">
+    <a href="/">Flight Pass</a>
+    <a href="/terms/">Terms of service</a>
+    <a href="mailto:nicobr65@gmail.com">Contact</a>
+  </footer>
+
+</body>
+</html>
