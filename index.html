@@ -3,127 +3,274 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Flight Pass, your boarding pass wallet</title>
-  <meta name="description" content="Keep every boarding pass in one place, get your gate and delays as they happen, and show the barcode at the gate, even with no signal.">
+  <title>Flight Pass: Boarding Pass Wallet for Android, Any Airline</title>
+  <meta name="description" content="Keep every boarding pass in one Android app. Import PDF, screenshot or .pkpass passes, get gate and delay alerts, and show the barcode offline. Free.">
   <link rel="canonical" href="https://flight-pass.app/">
+  <meta name="theme-color" content="#005DB8">
   <link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
-  <meta property="og:title" content="Flight Pass, your boarding pass wallet">
-  <meta property="og:description" content="Any airline. One wallet. Free on Android.">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Flight Pass">
+  <meta property="og:title" content="Flight Pass: any airline, one boarding pass wallet">
+  <meta property="og:description" content="Import any boarding pass, get gate and delay alerts, and show the barcode at the gate, even offline. Free on Android.">
   <meta property="og:url" content="https://flight-pass.app/">
-  <meta property="og:image" content="https://flight-pass.app/assets/screens/pass.jpg">
-  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700|Roboto+Mono:400&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+  <meta property="og:image" content="https://flight-pass.app/assets/og-image.jpg">
+  <meta property="og:image:width" content="1024">
+  <meta property="og:image:height" content="500">
+  <meta property="og:image:alt" content="Flight Pass: any airline, one wallet. A boarding pass from LAX to JFK and a gate notification.">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=connecting_airports,download,insights,lock,notifications_active,qr_code_2,widgets&display=block" rel="stylesheet">
   <link rel="stylesheet" href="/assets/style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "MobileApplication",
+        "@id": "https://flight-pass.app/#app",
+        "name": "Flight Pass",
+        "alternateName": "Flight Boarding Pass Wallet",
+        "description": "A boarding pass wallet for Android. Import PDF, screenshot, paper or .pkpass boarding passes from any airline, get gate and delay alerts, and show the barcode at the gate, even offline.",
+        "url": "https://flight-pass.app/",
+        "operatingSystem": "Android",
+        "applicationCategory": "TravelApplication",
+        "installUrl": "https://play.google.com/store/apps/details?id=com.flight.manager.scanner",
+        "image": "https://flight-pass.app/assets/icon-512.png",
+        "screenshot": [
+          "https://flight-pass.app/assets/screens/pass.webp",
+          "https://flight-pass.app/assets/screens/home.webp",
+          "https://flight-pass.app/assets/screens/notification.webp",
+          "https://flight-pass.app/assets/screens/delayed.webp",
+          "https://flight-pass.app/assets/screens/import.webp"
+        ],
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "publisher": { "@id": "https://flight-pass.app/#org" }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://flight-pass.app/#org",
+        "name": "Studio Bridoux AB",
+        "url": "https://flight-pass.app/",
+        "logo": "https://flight-pass.app/assets/icon-512.png",
+        "email": "nicobr65@gmail.com"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://flight-pass.app/#website",
+        "name": "Flight Pass",
+        "url": "https://flight-pass.app/",
+        "publisher": { "@id": "https://flight-pass.app/#org" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "Does Flight Pass work with my airline?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes, if your airline gives you a boarding pass with a barcode. Flight Pass reads the standard barcode printed on mobile, PDF and paper boarding passes, so it works with full-service and low-cost airlines alike." } },
+          { "@type": "Question", "name": "How do I open a .pkpass boarding pass on Android?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Open or share the .pkpass file with Flight Pass. It imports the pass with its barcode, and also the boarding time, terminal, gate and gate closing time when the airline includes them." } },
+          { "@type": "Question", "name": "Does it work offline at the airport?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. Your boarding passes are stored on your phone, so the barcode opens with no signal. Live flight status and weather need a connection." } },
+          { "@type": "Question", "name": "Is Flight Pass free?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. The free version shows ads, and a one-time purchase on Google Play removes them." } },
+          { "@type": "Question", "name": "Do I need an account?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No account and no sign-up. Backing up your passes to your own Google Drive is optional." } }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
   <header class="fp-hero">
     <div class="fp-wrap">
       <div class="fp-hero-text">
-        <div class="fp-brand"><img src="/assets/icon.svg" alt="">Flight Pass</div>
-        <h1>Any airline.<span>One wallet.</span></h1>
-        <p>Keep every boarding pass in one place, get your gate and delays as they happen, and show the barcode at the gate, even with no signal.</p>
+        <div class="fp-brand"><img src="/assets/icon.svg" alt="" width="56" height="56">Flight Pass</div>
+        <h1><span class="fp-eyebrow">Boarding pass wallet for Android</span>Any airline.<span class="fp-accent">One wallet.</span></h1>
+        <p>Keep every boarding pass in one app. Import the PDF from your check-in email, a screenshot or a .pkpass file, get your gate and delays as they happen, and show the barcode at the gate, even with no signal.</p>
         <a class="fp-badge" href="https://play.google.com/store/apps/details?id=com.flight.manager.scanner">
-          <img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png">
+          <img alt="Get Flight Pass on Google Play" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" width="207" height="80">
         </a>
         <div class="fp-small">Free on Android. No account needed.</div>
       </div>
-      <div class="fp-phone"><img src="/assets/screens/pass.jpg" alt="A boarding pass in Flight Pass, with its barcode, gate and departure time"></div>
+      <div class="fp-mock" role="img" aria-label="A boarding pass from LAX to JFK, seat 7C, departing 18:20 from gate B12, with a Flight Pass notification for gate B12, terminal 2">
+        <div class="fp-stub fp-s1">JFK<span class="fp-plane">&#9992;&#xFE0E;</span>ORD</div>
+        <div class="fp-stub fp-s2">SFO<span class="fp-plane">&#9992;&#xFE0E;</span>SEA</div>
+        <div class="fp-pass">
+          <div class="fp-route">LAX<span class="fp-plane">&#9992;&#xFE0E;</span>JFK</div>
+          <div class="fp-meta">
+            <div><div class="fp-k">SEAT</div><div class="fp-v">7C</div></div>
+            <div><div class="fp-k">DEPARTS</div><div class="fp-v">18:20</div></div>
+            <div><div class="fp-k">GATE</div><div class="fp-v">B12</div></div>
+          </div>
+          <div class="fp-tear"></div>
+          <div class="fp-barcode"></div>
+        </div>
+        <div class="fp-notif">
+          <div class="fp-notif-hdr"><img src="/assets/icon.svg" alt="" width="20" height="20">Flight Pass · now</div>
+          <div class="fp-notif-ttl">Gate B12 · Terminal 2</div>
+          <div class="fp-notif-bdy">LAX &#9992;&#xFE0E; JFK departs 18:20</div>
+        </div>
+      </div>
     </div>
   </header>
 
-  <section class="fp-section">
-    <div class="fp-wrap">
-      <h2>Made for the moments that matter</h2>
-      <p class="fp-lead">From the email your airline sends to the scanner at the gate, Flight Pass takes care of the parts of a trip that usually go wrong.</p>
-      <div class="fp-cases">
-        <div class="fp-case">
-          <div class="fp-ic"><span class="material-icons-round">qr_code_2</span></div>
-          <h3>At the gate, offline</h3>
-          <p>Your pass opens in one tap, large and bright, so the scanner reads it first time. No signal needed.</p>
-        </div>
-        <div class="fp-case">
-          <div class="fp-ic"><span class="material-icons-round">file_download</span></div>
-          <h3>Any pass, any airline</h3>
-          <p>Import the PDF from your check-in email, a screenshot, a photo of a paper pass or a .pkpass file.</p>
-        </div>
-        <div class="fp-case">
-          <div class="fp-ic"><span class="material-icons-round">notifications_active</span></div>
-          <h3>Gate and delays as they happen</h3>
-          <p>A reminder before you leave, with your terminal and gate, and a heads-up when the departure time moves.</p>
-        </div>
-        <div class="fp-case">
-          <div class="fp-ic"><span class="material-icons-round">connecting_airports</span></div>
-          <h3>Connections in order</h3>
-          <p>Multi-leg trips show one card per flight, in the order you fly them, with the time you have to connect.</p>
-        </div>
-        <div class="fp-case">
-          <div class="fp-ic"><span class="material-icons-round">widgets</span></div>
-          <h3>Your next flight at a glance</h3>
-          <p>A home screen widget shows the route, departure time, gate and status without opening the app.</p>
-        </div>
-        <div class="fp-case">
-          <div class="fp-ic"><span class="material-icons-round">insights</span></div>
-          <h3>Your travel in numbers</h3>
-          <p>Distance flown, time in the air, airports visited, favourite routes and airlines, year after year.</p>
-        </div>
+  <main>
+    <section class="fp-section">
+      <div class="fp-wrap">
+        <h2>Your boarding pass on your phone in three steps</h2>
+        <p class="fp-lead">No airline app to install for every trip. Check in as usual, then keep all your passes in one place.</p>
+        <ol class="fp-steps">
+          <li>
+            <h3>Check in with your airline</h3>
+            <p>Online, in the airline's app or at the desk. You get your boarding pass as a PDF, a mobile pass or on paper.</p>
+          </li>
+          <li>
+            <h3>Add it to Flight Pass</h3>
+            <p>Share the PDF or screenshot from your email, open the .pkpass file, or take a photo of the paper pass. Flight Pass reads the barcode and fills in the flight.</p>
+          </li>
+          <li>
+            <h3>Show it at the gate</h3>
+            <p>Before departure, a notification brings your terminal and gate. Tap it and the barcode opens full screen, at full brightness.</p>
+          </li>
+        </ol>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="fp-section fp-alt">
-    <div class="fp-wrap">
-      <h2>See it in action</h2>
-      <p class="fp-lead">Everything about your flight, one tap away.</p>
-      <div class="fp-shots">
-        <figure class="fp-shot">
-          <div class="fp-phone"><img src="/assets/screens/home.jpg" alt="Upcoming flights on the home screen" loading="lazy"></div>
-          <figcaption>Your trips<small>Upcoming flights first</small></figcaption>
-        </figure>
-        <figure class="fp-shot">
-          <div class="fp-phone"><img src="/assets/screens/notification.jpg" alt="A notification with the terminal, gate and seat" loading="lazy"></div>
-          <figcaption>Before you leave<small>Terminal, gate and seat</small></figcaption>
-        </figure>
-        <figure class="fp-shot">
-          <div class="fp-phone"><img src="/assets/screens/delayed.jpg" alt="A pass showing a 30 minute delay" loading="lazy"></div>
-          <figcaption>When it's late<small>The new time, as it changes</small></figcaption>
-        </figure>
-        <figure class="fp-shot">
-          <div class="fp-phone"><img src="/assets/screens/import.jpg" alt="The choices to add a boarding pass" loading="lazy"></div>
-          <figcaption>Adding a pass<small>PDF, image, camera or .pkpass</small></figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
-
-  <section class="fp-section">
-    <div class="fp-wrap">
-      <div class="fp-private">
-        <span class="material-icons-round">lock</span>
-        <div>
-          <h2>Your passes stay yours</h2>
-          <p>Your boarding passes are stored on your phone, with no account and no server of mine in between. Only anonymous statistics and crash reports help me improve the app. <a href="/privacy/">Read the privacy policy</a>.</p>
+    <section class="fp-section fp-alt">
+      <div class="fp-wrap">
+        <h2>Made for the moments that matter</h2>
+        <p class="fp-lead">From the email your airline sends to the scanner at the gate, Flight Pass takes care of the parts of a trip that usually go wrong.</p>
+        <div class="fp-cases">
+          <div class="fp-case">
+            <div class="fp-ic"><span class="material-symbols-rounded" aria-hidden="true">qr_code_2</span></div>
+            <h3>An offline boarding pass</h3>
+            <p>Your pass opens in one tap, large and bright, so the scanner reads it first time. No signal needed.</p>
+          </div>
+          <div class="fp-case">
+            <div class="fp-ic"><span class="material-symbols-rounded" aria-hidden="true">download</span></div>
+            <h3>Any pass, any airline</h3>
+            <p>Import the PDF from your check-in email, a screenshot, a photo of a paper pass or a .pkpass file.</p>
+          </div>
+          <div class="fp-case">
+            <div class="fp-ic"><span class="material-symbols-rounded" aria-hidden="true">notifications_active</span></div>
+            <h3>Gate and delay alerts</h3>
+            <p>A reminder before you leave, with your terminal and gate, and a heads-up when the departure time moves.</p>
+          </div>
+          <div class="fp-case">
+            <div class="fp-ic"><span class="material-symbols-rounded" aria-hidden="true">connecting_airports</span></div>
+            <h3>Connections in order</h3>
+            <p>Multi-leg trips show one card per flight, in the order you fly them, with the time you have to connect.</p>
+          </div>
+          <div class="fp-case">
+            <div class="fp-ic"><span class="material-symbols-rounded" aria-hidden="true">widgets</span></div>
+            <h3>Your next flight at a glance</h3>
+            <p>A home screen widget shows the route, departure time, gate and flight status without opening the app.</p>
+          </div>
+          <div class="fp-case">
+            <div class="fp-ic"><span class="material-symbols-rounded" aria-hidden="true">insights</span></div>
+            <h3>Your travel in numbers</h3>
+            <p>Distance flown, time in the air, airports visited, favourite routes and airlines, year after year.</p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="fp-section fp-alt fp-cta">
-    <div class="fp-wrap">
-      <img class="fp-icon" src="/assets/icon.svg" alt="">
-      <h2>Ready for your next flight?</h2>
-      <p class="fp-lead">Free on Google Play, for any airline that issues a boarding pass with a barcode.</p>
-      <a class="fp-badge" href="https://play.google.com/store/apps/details?id=com.flight.manager.scanner">
-        <img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png">
-      </a>
-      <div class="fp-links">
-        <a href="/privacy/">Privacy policy</a>
-        <a href="/terms/">Terms of service</a>
-        <a href="mailto:nicobr65@gmail.com">Contact</a>
+    <section class="fp-section">
+      <div class="fp-wrap">
+        <h2>See it in action</h2>
+        <p class="fp-lead">Everything about your flight, one tap away.</p>
+        <div class="fp-shots">
+          <figure class="fp-shot">
+            <div class="fp-phone"><img src="/assets/screens/pass.webp" width="540" height="960" loading="lazy" alt="A boarding pass in Flight Pass, with its barcode, seat, terminal, gate and departure time"></div>
+            <figcaption>At the gate<small>Barcode, seat and gate</small></figcaption>
+          </figure>
+          <figure class="fp-shot">
+            <div class="fp-phone"><img src="/assets/screens/home.webp" width="540" height="960" loading="lazy" alt="Upcoming flights on the Flight Pass home screen"></div>
+            <figcaption>Your trips<small>Upcoming flights first</small></figcaption>
+          </figure>
+          <figure class="fp-shot">
+            <div class="fp-phone"><img src="/assets/screens/notification.webp" width="540" height="960" loading="lazy" alt="A flight notification with the terminal, gate and seat"></div>
+            <figcaption>Before you leave<small>Terminal, gate and seat</small></figcaption>
+          </figure>
+          <figure class="fp-shot">
+            <div class="fp-phone"><img src="/assets/screens/delayed.webp" width="540" height="960" loading="lazy" alt="A boarding pass showing a delayed flight and its new departure time"></div>
+            <figcaption>When it's late<small>The new time, as it changes</small></figcaption>
+          </figure>
+          <figure class="fp-shot">
+            <div class="fp-phone"><img src="/assets/screens/import.webp" width="540" height="960" loading="lazy" alt="The ways to add a boarding pass: PDF, image, camera or .pkpass file"></div>
+            <figcaption>Adding a pass<small>PDF, image, camera or .pkpass</small></figcaption>
+          </figure>
+        </div>
       </div>
-      <p class="fp-small" style="margin-top:18px">Google Play and the Google Play logo are trademarks of Google LLC.</p>
-    </div>
-  </section>
+    </section>
+
+    <section class="fp-section fp-alt">
+      <div class="fp-wrap">
+        <h2>Questions</h2>
+        <div class="fp-faq">
+          <details>
+            <summary>Does Flight Pass work with my airline?</summary>
+            <p>Yes, if your airline gives you a boarding pass with a barcode. Flight Pass reads the standard barcode printed on mobile, PDF and paper boarding passes, so it works with full-service and low-cost airlines alike.</p>
+          </details>
+          <details>
+            <summary>How do I open a .pkpass boarding pass on Android?</summary>
+            <p>Open or share the .pkpass file with Flight Pass. It imports the pass with its barcode, and also the boarding time, terminal, gate and gate closing time when the airline includes them.</p>
+          </details>
+          <details>
+            <summary>Does it work offline at the airport?</summary>
+            <p>Yes. Your boarding passes are stored on your phone, so the barcode opens with no signal. Live flight status and weather need a connection.</p>
+          </details>
+          <details>
+            <summary>Is Flight Pass free?</summary>
+            <p>Yes. The free version shows ads, and a one-time purchase on Google Play removes them.</p>
+          </details>
+          <details>
+            <summary>Do I need an account?</summary>
+            <p>No account and no sign-up. Backing up your passes to your own Google Drive is optional.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="fp-section">
+      <div class="fp-wrap">
+        <div class="fp-private">
+          <span class="material-symbols-rounded" aria-hidden="true">lock</span>
+          <div>
+            <h2>Your passes stay yours</h2>
+            <p>Your boarding passes are stored on your phone, with no account and no server of mine in between. Only anonymous statistics and crash reports help me improve the app. <a href="/privacy/">Read the privacy policy</a>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="fp-section fp-alt fp-cta">
+      <div class="fp-wrap">
+        <img class="fp-icon" src="/assets/icon.svg" alt="" width="72" height="72" loading="lazy">
+        <h2>Ready for your next flight?</h2>
+        <p class="fp-lead">Free on Google Play, for any airline that issues a boarding pass with a barcode.</p>
+        <a class="fp-badge" href="https://play.google.com/store/apps/details?id=com.flight.manager.scanner">
+          <img alt="Get Flight Pass on Google Play" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" width="207" height="80" loading="lazy">
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="fp-foot">
+    <nav>
+      <a href="/privacy/">Privacy policy</a>
+      <a href="/terms/">Terms of service</a>
+      <a href="mailto:nicobr65@gmail.com">Contact</a>
+    </nav>
+    <p>© 2026 Studio Bridoux AB. Google Play and the Google Play logo are trademarks of Google LLC.</p>
+  </footer>
 
 </body>
 </html>
